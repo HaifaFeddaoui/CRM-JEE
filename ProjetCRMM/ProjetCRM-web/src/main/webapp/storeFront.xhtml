@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+
+	<ui:define name="content">
+		<h:panelGroup columns="2">
+			<h:form>
+
+
+
+
+				<div class="catagory-post-area section-padding-100">
+					<div class="container">
+						<div class="row justify-content-center">
+							<!-- Post Area -->
+							<div class="col-12 col-lg-8 col-xl-9">
+								<!-- Single Blog Post -->
+								<h:dataTable value="#{storeBean.stores}" var="store" >
+
+									<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+										<!-- Blog Thumbnail -->
+										<h:column>
+
+											<div class="blog-thumbnail">
+												<img src="storeImages/logo.jpg" alt="" style="width: 350px"></img>
+											</div>
+										</h:column>
+
+										<h:column>
+
+											<!-- Blog Content -->
+											<div class="blog-content">
+												<a href="#" class="post-tag"> <h:outputText
+														value="#{store.storeName}" />
+												</a>
+												<div class="post-meta">
+
+													<a href="#" class="post-title"><h:outputText style="color:grey;font-size:15px"
+															value="#{store.storeAddress}" /></a>
+												</div>
+
+												<div class="post-meta">
+													<a href="#" class="post-date"><h:outputText
+															value="#{store.openingHour}" />/</a> <a href="#"
+														class="post-author"><h:outputText
+															value="#{store.closingHour}" /></a>
+												</div>
+
+												<div class="post-meta"> <a href="#" class="post-title"><h:outputText style="color:red;font-size:15px"
+															value="#{store.storeNum}" /></a></div>
+
+													<p>
+														<h:outputText style="font-size:15px;color:black" value="#{store.storeDesc}" />
+													</p>
+												</div>
+												
+												<h:commandLink style="color:green" value="More +" />
+										</h:column>
+									</div>
+								</h:dataTable>
+							</div>
+						</div>
+					</div>
+				</div>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+
+</ui:composition>

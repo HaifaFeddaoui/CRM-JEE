@@ -1,0 +1,187 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templateback/templateback.xhtml">
+
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:panelGroup columns="2">
+			<h:form enctype="multipart/form-data">
+
+				<table
+					style="height: 500px; width: 500px; position: relative; right: -500px; left: 500px">
+					<tr>
+						<td><h:outputText value="Name :" style="font-weight:bold"
+								class="col-md-6 col-sm-6 "></h:outputText></td>
+						<td><h:inputText value="#{storeBean.storeName}"></h:inputText></td>
+					</tr>
+
+					<tr>
+						<td><h:outputText value="Description:"
+								style="font-weight:bold" class="col-md-6 col-sm-6 "></h:outputText></td>
+
+						<td><h:inputTextarea value="#{storeBean.storeDesc}"></h:inputTextarea></td>
+
+					</tr>
+
+
+					<tr>
+						<td><h:outputText value="Opening Hour :"
+								style="font-weight:bold" class="col-md-6 col-sm-6 "></h:outputText></td>
+
+						<td><h:inputText value="#{storeBean.openingHour}">
+
+							</h:inputText></td>
+
+					</tr>
+
+					<tr>
+						<td><h:outputText value="Closing Hour :"
+								style="font-weight:bold" class="col-md-6 col-sm-6 "></h:outputText></td>
+
+						<td><h:inputText value="#{storeBean.closingHour}">
+
+
+							</h:inputText></td>
+
+					</tr>
+
+					<!--  
+					<tr>
+						<td><h:outputText value="Image:" style="font-weight:bold"
+								class="col-md-6 col-sm-6 "></h:outputText></td>
+
+						<td><h:inputFile type="file" value="#{storeBean.file}" /></td>
+					</tr>
+-->
+					<tr>
+						<td><h:outputText value="Number :" style="font-weight:bold"
+								class="col-md-6 col-sm-6 "></h:outputText></td>
+
+						<td><h:inputText value="#{storeBean.storeNum}"></h:inputText></td>
+
+					</tr>
+
+					<tr>
+						<td><h:outputText value="Address :" style="font-weight:bold"
+								class="col-md-6 col-sm-6 "></h:outputText></td>
+
+						<td><h:inputText value="#{storeBean.storeAddress}"></h:inputText></td>
+
+					</tr>
+
+					<tr>
+						<td><h:outputText value="Latitude :" style="font-weight:bold"
+								class="col-md-6 col-sm-6 "></h:outputText></td>
+
+						<td><h:inputText value="#{storeBean.latitude}"></h:inputText></td>
+
+					</tr>
+
+					<tr>
+						<td><h:outputText value="Longitude :"
+								style="font-weight:bold" class="col-md-6 col-sm-6 "></h:outputText></td>
+
+						<td><h:inputText value="#{storeBean.longitude}"></h:inputText></td>
+
+					</tr>
+					<tr>
+						<td colspan="2"><h:commandButton value="Add store"
+								action="#{storeBean.addStore()}" /></td>
+
+
+
+					</tr>
+
+				</table>
+			</h:form>
+
+
+		</h:panelGroup>
+		
+		
+
+		<h:panelGroup id="printPanel" columns="2">
+			<h:form>
+				<div align="center">
+					<h:dataTable value="#{storeBean.stores}" var="store" border="1">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name" />
+							</f:facet>
+							<h:outputText value="#{store.storeName}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Description" />
+							</f:facet>
+							<h:outputText value="#{store.storeDesc}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Opening Hour" />
+							</f:facet>
+							<h:outputText value="#{store.openingHour}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Closing Hour" />
+							</f:facet>
+							<h:outputText value="#{store.closingHour}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Number" />
+							</f:facet>
+							<h:outputText value="#{store.storeNum}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Address" />
+							</f:facet>
+							<h:outputText value="#{store.storeAddress}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Latitude" />
+							</f:facet>
+							<h:outputText value="#{store.latitude}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Longitude" />
+							</f:facet>
+							<h:outputText value="#{store.longitude}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Action" />
+							</f:facet>
+
+
+
+
+							<h:commandButton action="affichageStore" value="Manage stores" />
+							
+							<h:commandButton value="Print">
+							<p:printer target="printPanel" /></h:commandButton>
+
+						</h:column>
+
+						
+					</h:dataTable>
+				</div>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>
