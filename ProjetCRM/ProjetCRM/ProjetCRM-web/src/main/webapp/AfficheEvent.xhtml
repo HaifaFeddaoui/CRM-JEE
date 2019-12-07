@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+
+	<ui:define name="content">
+<h:panelGroup columns="2">
+<h:form>
+
+<h:dataTable value="#{ebean.events}" var="event" border="1" class="table table-striped" style="height:10%; width:80%; position:relative;
+                                     right:-150px;left:150px">
+<h:column ><f:facet name="header"><h:outputText value="Image" /></f:facet>
+<img src="imageevent/#{event.eventImage}" style="width: 100%;height: 50%"  > </img>
+</h:column>
+<h:column ><f:facet name="header"><h:outputText value="Nom Evénement" /></f:facet>
+<h:outputText value="#{event.eventName}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Date Début de l'événement" /></f:facet>
+<h:outputText value="#{event.eventDateD}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Date Fin de l'événement" /></f:facet>
+<h:outputText value="#{event.eventDateF}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Description" /></f:facet>
+<h:outputText value="#{event.eventDesc}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Nombre de place" /></f:facet>
+<h:outputText value="#{event.nbreplace}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Etat de l'événement" /></f:facet>
+<h:outputText value=" #{event.etat}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Prix" /></f:facet>
+<h:outputText value="#{event.eventprix}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Adresse" /></f:facet>
+<h:outputText value="#{event.lieu}" /></h:column>
+
+<h:column>
+<f:facet name="header"><h:outputText value="Action" /></f:facet>
+<h:commandLink action="#{ebean.removeEvent(event.eventid)}"   class="fa fa-trash" style="font-size:48px;color:red">
+   </h:commandLink>
+<h:commandLink action="AjoutEvent.xhtml" actionListener="#{ebean.displayEvent(event)}"  class="fa fa-check" style="font-size:48px;color:green">
+   </h:commandLink>
+   
+   
+   
+</h:column>
+</h:dataTable>
+</h:form>
+</h:panelGroup>
+</ui:define>
+</ui:composition>

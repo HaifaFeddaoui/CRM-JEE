@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+
+	<ui:define name="content">
+
+<h:form>
+<center><h1>L'événement de la semaine</h1></center>
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:dataTable value="#{ebean.getEventMax()}"  var="e" style="height:50%; width:60%; position:relative;
+                                     right:-150px;left:150px"  >
+<h:column >
+<img src="imageevent/#{e.eventImage}" style="width: 80%;height: 60%"  > </img>
+</h:column>
+<h:column >
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="Nom de l'événement :" style="font-weight:bold;color:green" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="#{e.eventName}" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="Date de début :" style="font-weight:bold;color:green" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="#{e.eventDateD}" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="Date de fin :" style="font-weight:bold;color:green" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="#{e.eventDateF}" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="Descriprtion :" style="font-weight:bold;color:green" />
+<h:outputText value="#{e.eventDesc}" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="Prix :" style="font-weight:bold;color:green" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="#{e.eventprix}" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="Adresse :" style="font-weight:bold;color:green" />
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<h:outputText value="#{e.lieu}" /></h:column>
+
+</h:dataTable>
+</h:form>
+
+</ui:define>
+</ui:composition>

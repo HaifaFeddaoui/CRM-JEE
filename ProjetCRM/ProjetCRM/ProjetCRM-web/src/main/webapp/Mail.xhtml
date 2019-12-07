@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+
+	<ui:define name="content">
+
+<h:form>
+<center><h1>Recommander un événement</h1></center>
+<h:outputText value="&lt;br/&gt;" escape="false" />
+<table
+					style="height: 500px; width: 500px; position: relative; right: -500px; left: 500px">
+					<tr>
+						<td><h:outputText value="To:"
+								style="font-weight:bold" class="col-md-6 col-sm-6 "></h:outputText></td>
+						<td><h:inputText value="#{ebean.toMail}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Message:"
+								style="font-weight:bold" class="col-md-6 col-sm-6 "></h:outputText></td>
+						<td><h:inputTextarea value="#{ebean.message}"></h:inputTextarea></td>
+					</tr>
+					
+					
+					
+					<tr>
+						<td colspan="2">
+								
+								 <h:commandLink
+								action="#{ebean.send()}"  class="fa fa-check"
+								style="font-size:48px;color:green">
+							</h:commandLink></td>
+						
+					</tr>
+
+
+
+
+				</table>
+</h:form>
+
+</ui:define>
+</ui:composition>
