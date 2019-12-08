@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:panelGroup>
+
+
+			<h:panelGroup columns="2">
+				<h:form>
+					<h:column>
+						<h:outputText value="#{mybean.name}" />
+					</h:column> 
+					<br>
+					</br>
+						<h:column>
+						<h:outputText value="#{mybean.lastName}" />
+					</h:column>
+					<br>
+					</br>
+						<h:column>
+						<h:outputText value="#{mybean.mysolde}" />
+					</h:column>
+					
+
+
+					<h:dataTable value="#{mybean.getuserOffers()}" var="myoffer"
+						border="1">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Numero" />
+							</f:facet>
+							<h:outputText value="#{myoffer.numTel}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="delai" />
+							</f:facet>
+							<h:outputText value="#{myoffer.delai}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Offer" />
+							</f:facet>
+							<h:outputText value="#{mybean.getOffername(myoffer.offer)}" />
+						</h:column>
+
+
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Action" />
+							</f:facet>
+							<h:commandButton
+								action="#{mybean.desactiver(myoffer.affectationOffreId)}"
+								value="Desactivate" />
+
+						</h:column>
+
+
+
+					</h:dataTable>
+				</h:form>
+			</h:panelGroup>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>

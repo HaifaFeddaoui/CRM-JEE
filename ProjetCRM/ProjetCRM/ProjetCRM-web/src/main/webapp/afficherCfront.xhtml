@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/resources/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:form>
+			<h:dataTable value="#{mybean.getcompetitions()}" var="competition">
+		
+		<div class="post-catagory section-padding-100">
+    <div class="container">
+        <div class="row">
+            <!-- Single Post Catagory -->
+        
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+
+                        <div class="single-post-catagory mb-30">
+                       
+                       <h:column>
+                                
+                          
+                          
+										<h:graphicImage value="#{competition.imageCompetition}" />
+                           </h:column>
+                             <h:column> 
+                          
+                            <!-- Content -->
+                            <div class="catagory-content-bg">
+                                <div class="catagory-content">
+                               
+                                 <h:outputText value="#{competition.competitionName}" />
+
+ <br> </br>
+                                    
+                                
+												<h:outputText value="#{competition.competitionDesc}" />
+										 <h:commandLink value="participer" />		
+                                 
+                                </div>
+                        </div>
+                        
+                         </h:column>
+                        </div>
+
+        </div>
+           
+              
+            
+      </div>
+   </div>
+</div>
+   </h:dataTable>
+              
+		
+			
+		
+		</h:form>
+		
+			
+		
+
+	</ui:define>
+</ui:composition>
+
+
+

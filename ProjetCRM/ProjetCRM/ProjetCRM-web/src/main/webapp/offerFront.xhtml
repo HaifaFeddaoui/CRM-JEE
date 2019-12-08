@@ -1,0 +1,93 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<div class="catagory-post-area section-padding-100">
+			<div class="container">
+
+				<h:panelGroup columns="2">
+					<h:form>
+
+						<div class="catagory-post-area section-padding-100">
+							<div class="container">
+								<div class="row justify-content-center">
+									<!-- Post Area -->
+									<div class="col-12 col-lg-8 col-xl-9">
+										<!-- Single Blog Post -->
+										<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+											<!-- Blog Thumbnail -->
+											<div class="blog-thumbnail">
+
+												<h:dataTable value="#{mybean.getoffers()}" var="offer"
+													tableStyle="width:auto">
+													<img src="img/bg-img/9.jpg" alt=""> </img>
+
+													<h:column colspan="3">
+
+														<h:graphicImage value="#{offer.imageOffer}" />
+
+													</h:column>
+
+
+
+													<h:column width="500px">
+
+														<!-- Blog Content -->
+														<div class="blog-content">
+
+
+															<a href="#" class="post-title"> <h:outputText
+																	value="#{offer.offerName}" /></a>
+
+															<!--  	<div class="post-meta">
+													<a href="#" class="post-date">July 11, 2018</a> <a href="#"
+														class="post-author">By Julia Stiles</a>
+												</div>-->
+
+															<p>
+																<h:outputText value="#{offer.offerprice}" />
+																
+															</p>
+														</div>
+													</h:column>
+													<h:column>
+
+
+
+											
+														  <h:commandLink value="jrrr"
+									 action="#{mybean.getOfferDetail(offer.offerId)}"
+																 />
+														
+														<h:commandLink value="fook" action="activate.xhtml"
+									actionListener="#{mybean.setOfferr(offer.offerId)}" />
+													</h:column>
+                       <h:commandButton value="Ajouter Offer"
+									action="#{mybean.sendmail()}" />
+
+												</h:dataTable>
+
+
+
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</h:form>
+				</h:panelGroup>
+			</div>
+		</div>
+
+
+
+
+	</ui:define>
+</ui:composition>

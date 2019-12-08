@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:form>
+	
+			<h:dataTable value="#{mybean.getcompetitions()}" var="competition">
+
+<h:column ><f:facet name="header"><h:outputText value="Image" /></f:facet>
+<img src="#{competition.imageCompetition}" style="width: 30%;height: 10%"  > </img>
+</h:column>
+<h:column ><f:facet name="header"><h:outputText value="Compettion Name" /></f:facet>
+<h:outputText value="#{competition.competitionName}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="offer" /></f:facet>
+<h:outputText value="#{mybean.getOffernameByid(competition.offerId)}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="solde" /></f:facet>
+<h:outputText value="#{competition.solde}" /></h:column>
+<h:column>
+<f:facet name="header"><h:outputText value="Action" /></f:facet>
+<h:commandLink action="#{ebean.removeCp(competition.competitionId)}"   class="fa fa-trash" style="font-size:48px;color:red">
+   </h:commandLink>
+<!--<h:commandLink action="AjoutEvent.xhtml" actionListener="#{ebean.displayEvent(event)}"  class="fa fa-check" style="font-size:48px;color:green">
+   </h:commandLink>-->
+</h:column>
+</h:dataTable>
+
+
+
+		</h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>

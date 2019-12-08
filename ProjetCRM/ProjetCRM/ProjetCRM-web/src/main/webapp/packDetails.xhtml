@@ -1,0 +1,112 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:panelGroup>
+
+			<h:form>
+
+
+				<section class="post-news-area section-padding-100-0 mb-70">
+					<div class="container">
+						<div class="row justify-content-center">
+							<!-- Post Details Content Area -->
+							<div class="col-12 col-lg-8 col-xl-9">
+								<div class="post-details-content mb-100">
+									<div class="blog-thumbnail mb-50">
+
+										<h:graphicImage value="#{mybean.imagePa}"
+											style="height:500px; width:500px; position:relative;
+                                     top:-50px;right:-200px; bottom:50px;left:200px" />
+
+										<div class="blog-content">
+
+											<h4 class="post-title" style="color: red">
+												<h:column>
+													<h:outputText value="#{mybean.namePa}" />
+												</h:column>
+											</h4>
+											<div class="post-meta mb-50">
+												<h:column>
+
+													<a href="#" class="post-date" style="font-size: 20px">
+														Offer: </a>
+													<a href="#" class="post-author" style="font-size: 20px"><h:outputText
+															value="#{mybean.offerPa}" /></a>
+												</h:column>
+												<h:column>
+
+													<p style="font-size: 20px">
+														Price:
+														<h:outputText value="#{mybean.pricePa}" />
+														<span style="font-size: 10px">MIL</span>
+													</p>
+
+												</h:column>
+
+												<h:column>
+													<p style="color: black">
+														<h:outputText value="#{mybean.descPa}" />
+														Nunc tristique justo id elit bibendum pharetra non vitae
+														lectus. Mauris libero felis, dapibus a ultrices sed,
+														commodo vitae odio. Sed auctor tellus quis arcu tempus.
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+														Etiam ac tincidunt nunc. Cras sed mollis erat. Quisque
+														risus lorem, mattis nec nisl a, efficitur faucibus ligula.
+														Nulla facilisi. Integer sodales, metus nec finibus
+														lobortis, ex justo pharetra quam, vel vehicula urna turpis
+														ut risus. Sed dignissim erat sapien, non malesuada justo
+														cursus nec. Nunc porta pulvinar varius.
+													</p>
+												</h:column>
+												<p style="color: black">Suspendisse nisl leo, gravida
+													quis tortor at, ornare commodo neque. Donec tortor turpis,
+													pharetra et pulvinar vitae, ullamcorper et mi. Sed eu magna
+													aliquam, suscipit massa sit amet, mattis augue. Nam ut
+													tortor ut ligula molestie feugiat vitae et nulla. Sed porta
+													erat vitae leo pellentesque malesuada. In sollicitudin,
+													massa euismod aliquet volutpat, enim metus varius dui,
+													vestibulum efficitur ante velit non nisi. Cras varius
+													bibendum sapien, id tincidunt velit placerat id. Nunc vitae
+													facilisis nunc. Suspendisse ut felis sagittis mauris
+													faucibus tincidunt vitae id tortor. Nullam tincidunt
+													finibus turpis, a accumsan mauris laoreet cursus. Phasellus
+													pharetra odio sapien, id suscipit nisi lobortis ut.</p>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<h:column>
+						<h:commandButton value="favourite"
+							action="#{mybean.favourite(mybean.idPa)}" />
+
+
+
+						<h:commandLink ction="packFront.xhtml"
+							actionListener="#{mybean.favourite(mybean.idPa)}">
+							<h:graphicImage value="/favorite.png" width="50" height="50" />
+						</h:commandLink>
+
+
+					</h:column>
+				</section>
+
+
+
+
+
+
+			</h:form>
+
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>
