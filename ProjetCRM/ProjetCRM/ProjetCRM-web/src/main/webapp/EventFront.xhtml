@@ -47,9 +47,22 @@
 <h:column>
 <h:commandLink action="EventFront.xhtml" actionListener="#{ebean.participerEvent(event.eventid)}"  class="fa fa-check" style="font-size:48px;color:green">
    </h:commandLink>
+   </h:column>
+   <h:column>
+   <h:commandLink  acion="#{ebean.rateEvent(event.eventid)}"
+								class="fa fa-heart" style="font-size:48px;color:green">
+							</h:commandLink>
    
    
    
+</h:column>
+<h:column>
+<h:outputText value="Ajouter un commentaire :" style="font-weight:bold" class="col-md-6 col-sm-6 "></h:outputText>
+<h:inputText value="#{ebean.messages}"></h:inputText>
+<h:commandLink action="#{ebean.commenter(event.eventid)}" class="fa fa-check" style="font-size:48px;color:green">
+</h:commandLink>
+						
+					
 </h:column>
 </h:dataTable>
 </h:form>
