@@ -1,0 +1,12 @@
+Remotes\VehiculeServiceRemote.class
+model\Vehicule.class
+Remotes\EmailBusiness$1.class
+Remotes\TemplateMessage.class
+Remotes\VehiculeService.class
+model\Email.class
+model\Post.class
+Remotes\EmailRemote.class
+model\Ville.class
+Remotes\EmailBusiness.class
+model\User.class
+model\FileUpload.class
